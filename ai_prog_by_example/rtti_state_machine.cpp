@@ -185,16 +185,16 @@ void peeing_state::enter(miner& m)
 
 void peeing_state::execute(miner& m)
 {
-    cout << "peeing_state::execute(): miner[" << m.id() << "] returning to previous state" << endl;
+    cout << "peeing_state::execute(): miner[" << m.id() << "] relieved" << endl;
+
+    m.set_current_bladder_volume(0);
 
     m.state_machine().return_to_previous_state();
 }
 
 void peeing_state::exit(miner& m)
 {
-    cout << "peeing_state::exit(): miner[" << m.id() << "] relieved" << endl;
-
-    m.set_current_bladder_volume(0);
+    cout << "peeing_state::exit(): miner[" << m.id() << "] returning to previous state" << endl;
 }
 
 void mining_state::enter(miner& m)
